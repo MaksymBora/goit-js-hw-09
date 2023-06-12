@@ -1,6 +1,7 @@
 // Animation
-import anime from 'animejs/lib/anime.es.js';
-const anime = require('animejs');
+import anime from 'animejs';
+// import anime from 'animejs/lib/anime.es.js';
+// const anime = require('animejs');
 
 var paths = [
   { id: '#path5419', d: 'm 574.27172,479 0,-15.65736 -32.82996,4.54569 z' },

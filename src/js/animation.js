@@ -6,10 +6,3 @@ document.addEventListener('mousemove', e => {
     `,
   });
 });
-
-// Sound
-
-document.addEventListener('DOMContentLoaded', function () {
-  const audio = document.getElementById('#rain-sound');
-  audio.play();
-});

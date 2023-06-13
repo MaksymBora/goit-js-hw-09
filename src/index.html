@@ -61,6 +61,13 @@
       <source src="/src/sound/rain.mp3" type="audio/mpeg" />
     </audio>
 
+    <script>
+      const audio = document.getElementById('rain-sound');
+
+      document.addEventListener('click', () => {
+        audio.play();
+      });
+    </script>
     <script src="/src/js/animation.js" type="module"></script>
     <script src="/src/js/rain.js" type="module"></script>
   </body>

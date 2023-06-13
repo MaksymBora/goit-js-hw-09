@@ -97,6 +97,9 @@ function onClickStartReversTimer() {
 
     if (deltaTime < 0) {
       clearInterval(intervalId);
+      resetBtn.classList.add('is-hidden');
+      btnStart.classList.remove('is-hidden');
+      datePicker.value = '';
       return;
     }
     reversTimerComponents.getDays.textContent = addLeadingZero(

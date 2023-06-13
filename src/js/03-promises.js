@@ -9,6 +9,10 @@ const refs = {
 
 refs.form.addEventListener('submit', onClick);
 
+/*  Function return result of inputs
+ * and applyig createPromise Function
+ */
+
 function onClick(e) {
   e.preventDefault();
 
@@ -29,6 +33,10 @@ function onClick(e) {
   }
 }
 
+/*  Function create new Promise
+ *  position - amount of promises
+ *  delay - first delay
+ */
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;

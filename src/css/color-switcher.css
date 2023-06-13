@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  line-height: 1.5;
+  background-color: #1c1c1c;
+
+  overflow: hidden;
+}
+
+p > a {
+  color: #fff;
+  position: absolute;
+  left: 20;
+  top: 20;
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+p > a:hover {
+  color: #e6dbae;
+}
+
+@property --hue {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0;
+}
+
+:root {
+  /* Define custom property values */
+  --bg: hsl(0, 0%, 10%);
+  --button-bg: hsl(0, 0%, 0%);
+}
+
+button[data-start] {
+  position: absolute;
+  left: 30%;
+  margin-top: 50px;
+  cursor: pointer;
+
+  --border: hsl(var(--hue, 0), 0%, 50%);
+  --shadow: hsl(var(--hue, 0), 0%, 80%);
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  padding: 1.25rem 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.25rem solid;
+  background: var(--button-bg);
+  color: hsl(0, 0%, 100%);
+  border-color: var(--border);
+  box-shadow: 0 1rem 2rem -1.5rem var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  outline: transparent;
+}
+
+button[data-stop] {
+  margin-top: 50px;
+  position: absolute;
+  left: 50%;
+
+  --border: hsl(var(--hue, 0), 0%, 50%);
+  --shadow: hsl(var(--hue, 0), 0%, 80%);
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  padding: 1.25rem 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.25rem solid;
+  background: var(--button-bg);
+  color: hsl(0, 0%, 100%);
+  border-color: var(--border);
+  box-shadow: 0 1rem 2rem -1.5rem var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  outline: transparent;
+  cursor: pointer;
+}
+
+button[data-start]:hover,
+button[data-stop]:hover {
+  --border: hsl(var(--hue, 0), 80%, 50%);
+  --shadow: hsl(var(--hue, 0), 80%, 50%);
+  animation: hueJump 0.75s infinite linear;
+  transform: rotateY(10deg) rotateX(10deg);
+}
+
+button[data-start]:active,
+button[data-stop]:active {
+  transform: rotateY(10deg) rotateX(10deg) translate3d(0, 0, -15px);
+  box-shadow: 0 0rem 0rem 0rem var(--shadow);
+  animation-play-state: paused;
+}
+
+@keyframes hueJump {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}

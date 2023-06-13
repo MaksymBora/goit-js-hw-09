@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/common.css" />
   </head>
   <body>
-    <ul class="menu-list">
+    <!-- <ul class="menu-list">
       <li>
         <a class="menu-link" href="01-color-switcher.html">Color switcher</a>
       </li>
@@ -15,9 +15,7 @@
       <li>
         <a class="menu-link" href="03-promises.html">Promise generator</a>
       </li>
-    </ul>
-
-    <!-- Animation -->
+    </ul> -->
 
     <!-- <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -406,7 +404,49 @@
         d="m 220.64211,56.481896 7.71881,58.753454 12.45015,-6.00217 z"
       />
     </svg>
+  -->
 
-    <script src="/src/js/animation.js" type="module"></script> -->
+    <div class="logo" style="background-image: url(/src/img/logo.svg)"></div>
+
+    <section class="layers">
+      <div class="layers__container">
+        <div
+          class="layers__item layer-1"
+          style="background-image: url(img/layer-1.jpg)"
+        ></div>
+        <div
+          class="layers__item layer-2"
+          style="background-image: url(img/layer-2.png)"
+        ></div>
+        <div class="layers__item layer-3">
+          <div class="hero-content">
+            <h1>WELCOME<span> to FOREST-CODE</span></h1>
+            <div class="hero-content__p">goit-js-hw-09</div>
+            <a class="button-start" href="01-color-switcher.html"
+              >Color switcher</a
+            >
+            <a class="button-start" href="02-timer.html">Countdown timer</a>
+            <a class="button-start" href="03-promises.html"
+              >Promise generator</a
+            >
+            <!-- <button class="button-start">Start Learning</button> -->
+          </div>
+        </div>
+        <div class="layers__item layer-4">
+          <canvas class="rain"></canvas>
+        </div>
+        <div
+          class="layers__item layer-5"
+          style="background-image: url(img/layer-5.png)"
+        ></div>
+        <div
+          class="layers__item layer-6"
+          style="background-image: url(img/layer-6.png)"
+        ></div>
+      </div>
+    </section>
+
+    <script src="/src/js/animation.js" type="module"></script>
+    <script src="/src/js/rain.js" type="module"></script>
   </body>
 </html>

@@ -57,6 +57,13 @@
       </div>
     </section>
 
+    <!-- Modal -->
+    <div id="modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <button class="modal-button" onclick="closeModal()">Welcome</button>
+      </div>
+    </div>
+
     <!-- add sound of rain -->
     <audio id="rain-sound" style="display: none" loop>
       <source src="/src/sound/rain.mp3" type="audio/mpeg" />
@@ -71,6 +78,23 @@
       window.addEventListener('click', () => {
         audio.play();
       });
+    </script>
+
+    <script>
+      // Функция для открытия модального окна
+      function openModal() {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'flex';
+      }
+
+      // Функция для закрытия модального окна
+      function closeModal() {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'none';
+      }
+
+      // Показываем модальное окно при загрузке страницы
+      window.addEventListener('load', openModal);
     </script>
 
     <script src="/src/js/animation.js" type="module"></script>

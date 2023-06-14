@@ -62,7 +62,7 @@
       <source src="/src/sound/rain.mp3" type="audio/mpeg" />
     </audio>
 
-    <!-- <script>
+    <script>
       const audio = document.getElementById('rain-sound');
       audio.volume = 0.2;
 
@@ -71,36 +71,8 @@
       window.addEventListener('click', () => {
         audio.play();
       });
-    </script> -->
-    <script>
-      const audio = document.getElementById('rain-sound');
-      audio.volume = 0.2;
-
-      // Воспроизведение аудио после полной загрузки страницы
-      window.addEventListener('load', () => {
-        // Проверка браузера и применение различных подходов в зависимости от него
-        const userAgent = navigator.userAgent.toLowerCase();
-
-        // Если используется Google Chrome
-        if (userAgent.includes('chrome')) {
-          audio.play().catch(error => {
-            // В Chrome требуется пользовательское взаимодействие для разрешения автозапуска
-            console.log(
-              'Автозапуск звука заблокирован. Разрешите автозапуск звука после пользовательского взаимодействия.'
-            );
-          });
-        }
-        // Добавьте другие условия для других браузеров, применяя соответствующие политики автозапуска
-        // Например, для Safari или Firefox, можно использовать audio.autoplay = true;
-        else if (
-          userAgent.includes('safari') ||
-          userAgent.includes('firefox')
-        ) {
-          audio.autoplay = true;
-        }
-        // Добавьте другие условия для других браузеров
-      });
     </script>
+
     <script src="/src/js/animation.js" type="module"></script>
     <script src="/src/js/rain.js" type="module"></script>
   </body>

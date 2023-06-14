@@ -17,6 +17,7 @@
       </li>
     </ul> -->
 
+    <!-- Decoration -->
     <div class="logo" style="background-image: url(/src/img/logo.svg)"></div>
 
     <section class="layers">
@@ -80,24 +81,8 @@
       });
     </script>
 
-    <script>
-      // Функция для открытия модального окна
-      function openModal() {
-        const modal = document.getElementById('modal');
-        modal.style.display = 'flex';
-      }
-
-      // Функция для закрытия модального окна
-      function closeModal() {
-        const modal = document.getElementById('modal');
-        modal.style.display = 'none';
-      }
-
-      // Показываем модальное окно при загрузке страницы
-      window.addEventListener('load', openModal);
-    </script>
-
     <script src="/src/js/animation.js" type="module"></script>
     <script src="/src/js/rain.js" type="module"></script>
+    <script src="/src/js/modal.js" type="module"></script>
   </body>
 </html>

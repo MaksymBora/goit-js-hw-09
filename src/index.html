@@ -64,8 +64,8 @@
 
     <script>
       const audio = document.getElementById('rain-sound');
-
-      document.addEventListener('click', () => {
+      audio.volume = 0.2;
+      window.addEventListener('click', () => {
         audio.play();
       });
     </script>

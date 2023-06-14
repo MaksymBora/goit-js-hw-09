@@ -63,14 +63,26 @@
     </audio>
 
     <script>
-      const audio = document.getElementById('rain-sound');
-      audio.volume = 0.2;
+        const audio = document.getElementById('rain-sound');
+        audio.volume = 0.2;
 
-      audio.autoplay = true;
+        // audio.autoplay = true;
 
-      window.addEventListener('click', () => {
+        // window.addEventListener('click', () => {
+        //   audio.play();
+        // });
+
+        document.addEventListener('DOMContentLoaded', () => {
+      if (navigator.userAgent.toLowerCase().indexOf('chrome') !== -1) {
+
+        window.addEventListener('click', () => {
+          audio.play();
+        });
+      } else {
+
+        audio.autoplay = true;
         audio.play();
-      });
+      }
     </script>
     <script src="/src/js/animation.js" type="module"></script>
     <script src="/src/js/rain.js" type="module"></script>

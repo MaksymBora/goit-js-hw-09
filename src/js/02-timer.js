@@ -94,8 +94,6 @@ function onClickStartReversTimer() {
 
     //Test - if value is NaN abort function.
     if (isNaN(inputDate)) {
-      // Вывод ошибки или выполнение других действий
-      console.error('Invalid date');
       Report.warning('Oops!', 'Please choose future date!', 'Try Again');
       clearInterval(intervalId);
 

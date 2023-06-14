@@ -62,27 +62,43 @@
       <source src="/src/sound/rain.mp3" type="audio/mpeg" />
     </audio>
 
+    <!-- <script>
+      const audio = document.getElementById('rain-sound');
+      audio.volume = 0.2;
+
+      audio.autoplay = true;
+
+      window.addEventListener('click', () => {
+        audio.play();
+      });
+    </script> -->
     <script>
       const audio = document.getElementById('rain-sound');
       audio.volume = 0.2;
 
-      // audio.autoplay = true;
+      // Воспроизведение аудио после полной загрузки страницы
+      window.addEventListener('load', () => {
+        // Проверка браузера и применение различных подходов в зависимости от него
+        const userAgent = navigator.userAgent.toLowerCase();
 
-      // window.addEventListener('click', () => {
-      //   audio.play();
-      // });
-
-      document.addEventListener('DOMContentLoaded', () => {
-        if (navigator.userAgent.toLowerCase().indexOf('chrome') !== -1) {
-          // Если используется Chrome, запрашиваем разрешение у пользователя после первого клика
-          window.addEventListener('click', () => {
-            audio.play();
+        // Если используется Google Chrome
+        if (userAgent.includes('chrome')) {
+          audio.play().catch(error => {
+            // В Chrome требуется пользовательское взаимодействие для разрешения автозапуска
+            console.log(
+              'Автозапуск звука заблокирован. Разрешите автозапуск звука после пользовательского взаимодействия.'
+            );
           });
-        } else {
-          // В других браузерах воспроизводим аудио автоматически
-          audio.autoplay = true;
-          audio.play();
         }
+        // Добавьте другие условия для других браузеров, применяя соответствующие политики автозапуска
+        // Например, для Safari или Firefox, можно использовать audio.autoplay = true;
+        else if (
+          userAgent.includes('safari') ||
+          userAgent.includes('firefox')
+        ) {
+          audio.autoplay = true;
+        }
+        // Добавьте другие условия для других браузеров
       });
     </script>
     <script src="/src/js/animation.js" type="module"></script>

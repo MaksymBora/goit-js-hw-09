@@ -35,11 +35,7 @@ const options = {
 
     // If date chosen correct the Button "Start" become available.
     if (selectedDates[0].getTime() < currentTime) {
-      Report.warning(
-        'Oops!',
-        'Please choose a date in the future',
-        'Try Again'
-      );
+      Report.warning('Oops!', 'Please choose future date!', 'Try Again');
     } else {
       btnStart.removeAttribute('disabled');
     }
@@ -86,6 +82,7 @@ function addLeadingZero(value) {
 btnStart.addEventListener('click', onClickStartReversTimer);
 
 let intervalId = null;
+
 function onClickStartReversTimer() {
   intervalId = setInterval(updateCounter, 1000);
 
@@ -95,6 +92,17 @@ function onClickStartReversTimer() {
     const deltaTime = inputDate.getTime() - currentDate;
     const deltaTimeObj = convertMs(deltaTime);
 
+    //Test - if value is NaN abort function.
+    if (isNaN(inputDate)) {
+      // Вывод ошибки или выполнение других действий
+      console.error('Invalid date');
+      Report.warning('Oops!', 'Please choose future date!', 'Try Again');
+      clearInterval(intervalId);
+
+      return;
+    }
+
+    // Test - if user has chosen past date - abort function.
     if (deltaTime < 0) {
       clearInterval(intervalId);
       resetBtn.classList.add('is-hidden');
@@ -102,6 +110,7 @@ function onClickStartReversTimer() {
       datePicker.value = '';
       return;
     }
+
     reversTimerComponents.getDays.textContent = addLeadingZero(
       deltaTimeObj.days
     );
